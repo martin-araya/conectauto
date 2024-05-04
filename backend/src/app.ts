@@ -1,54 +1,37 @@
-import express, { Express, Request, Response } from 'express';
-import bodyParser from 'body-parser'; // Middleware para parsear el cuerpo de las solicitudes HTTP
-import cors from 'cors'; // Middleware para habilitar CORS
+import express from 'express';
+import userRoutes from './api/users/userRoutes';
+import reservaRoutes from './api/reservas/reservaRoutes';
 
-// Importa los routers de las APIs
-// import reservaRoutes from './api/reservas/reservaRoutes';
-// import usuarioRoutes from './api/usuarios/usuarioRoutes';
-// import pagoRoutes from './api/pagos/pagoRoutes';
+const app = express();
+const PORT = 3000;
+app.use(express.json());
 
-// Crea una instancia de Express
-const app: Express = express();
+// Usar las rutas de usuario
+app.use('/api/usuarios', userRoutes);
+app.use('/api/reservas', reservaRoutes);
 
-// Configuración de Middlewares
-app.use(cors()); // Habilita CORS
-app.use(bodyParser.json()); // Parsea automáticamente los cuerpos JSON en las solicitudes entrantes
-app.use(bodyParser.urlencoded({ extended: true })); // Parsea cuerpos con codificación URL
 
-// Rutas
-// app.use('/api/reservas', reservaRoutes);
-// app.use('/api/usuarios', usuarioRoutes);
-// app.use('/api/pagos', pagoRoutes);
-
-// GET method route
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
     res.send('GET request to the homepage');
 });
-
-// POST method route
-app.post('/', (req: Request, res: Response) => {
+app.post('/', (req, res) => {
     res.send('POST request to the homepage');
 });
-
-// PUT method route
-app.put('/', (req: Request, res: Response) => {
+app.put('/', (req, res) => {
     res.send('PUT request to the homepage');
 });
-
-// DELETE method route
-app.delete('/', (req: Request, res: Response) => {
+app.delete('/', (req, res) => {
     res.send('DELETE request to the homepage');
 });
-
-// PATCH method route
-app.patch('/', (req: Request, res: Response) => {
+app.patch('/', (req, res) => {
     res.send('PATCH request to the homepage');
 });
-
-// OPTIONS method route
-app.options('/', (req: Request, res: Response) => {
+app.options('/', (req, res) => {
     res.send('OPTIONS request to the homepage');
 });
 
-// Exporta la configuración de la app
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+
 export default app;
