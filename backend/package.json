@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.43.1",
+    "@types/passport-auth0": "^1.0.9",
     "@types/stripe": "^8.0.417",
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",

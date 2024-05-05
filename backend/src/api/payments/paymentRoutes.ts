@@ -1,15 +1,16 @@
-import { Router } from 'express';
-import { makePayment, getPaymentDetails, refundPayment } from './paymentController';
+import express from 'express';
+import {
+  createPaymentIntent,
+  createCustomer,
+  createInvoice,
+  createSession,
+} from '../payments/stripeController';
 
-const router = Router();
+const router = express.Router();
 
-// Endpoint to process a new payment
-router.post('/make', makePayment);
-
-// Endpoint to retrieve details of a specific payment
-router.get('/:paymentId', getPaymentDetails);
-
-// Endpoint to refund a specific payment
-router.post('/refund/:paymentId', refundPayment);
+router.get('/payment-intent', createPaymentIntent);
+router.post('/customer', createCustomer);
+router.post('/invoice', createInvoice);
+router.post('/checkout-session', createSession);
 
 export default router;

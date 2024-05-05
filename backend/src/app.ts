@@ -10,7 +10,7 @@ app.use(express.json());
 // Usar las rutas de usuario
 app.use('/api/usuarios', userRoutes);
 app.use('/api/reservas', reservaRoutes);
-app.use('/api/pagos', paymentRoutes);
+app.use('/api/pay', paymentRoutes);
 
 
 app.get('/', (req, res) => {
