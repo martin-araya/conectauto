@@ -1,6 +1,7 @@
 import express from 'express';
 import userRoutes from './api/users/userRoutes';
 import reservaRoutes from './api/reservas/reservaRoutes';
+import paymentRoutes from './api/payments/paymentRoutes';
 
 const app = express();
 const PORT = 3000;
@@ -9,6 +10,7 @@ app.use(express.json());
 // Usar las rutas de usuario
 app.use('/api/usuarios', userRoutes);
 app.use('/api/reservas', reservaRoutes);
+app.use('/api/pagos', paymentRoutes);
 
 
 app.get('/', (req, res) => {
