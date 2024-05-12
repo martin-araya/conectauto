@@ -1,7 +1,0 @@
-{
-  "dependencies": {
-    "@types/express-session": "^1.18.0",
-    "express-openid-connect": "^2.17.1",
-    "express-session": "^1.18.0"
-  }
-}
